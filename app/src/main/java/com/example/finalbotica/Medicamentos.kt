@@ -1,12 +1,10 @@
 package com.example.finalbotica
 
-class Medicamentos (
-    val idmedicamento: String,
+class Medicamentos(
+    val id_medi: Int,
     val descripcion: String,
-    val presentacion: String,
-    val inventario: Int,
-    val stock_disponible: Int,
-    val precio_costo: Double,
-    val precio_venta: Double,
-    val observacion: String
+    val observacion: String,
+    val stock: Int,
+    val pre_cos: Double,
+    val pre_ven: Double
 )

@@ -59,7 +59,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         // Add a marker in Sydney and move the camera
 
-        mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID)
+        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL)
         val sydney = LatLng(-6.7666774,-79.842288)
         mMap.addMarker(MarkerOptions().position(sydney).title("Mi Casa en CIX"))
         //mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))

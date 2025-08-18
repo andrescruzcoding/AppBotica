@@ -16,28 +16,20 @@ import org.json.JSONObject
 
 class MedicamentosActivity : AppCompatActivity() {
 
-    private lateinit var txtIdMedicamento: EditText
     private lateinit var txtDescripcion: EditText
-    private lateinit var txtPresentacion: EditText
-    private lateinit var txtInventario: EditText
+    private lateinit var txtObservacion: EditText
     private lateinit var txtStock: EditText
     private lateinit var txtCosto: EditText
     private lateinit var txtVenta: EditText
-    private lateinit var txtObservacion: EditText
 
     private lateinit var btnAgregar: Button
     private lateinit var btnVer: Button
-    private lateinit var btnBorrar: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main6)
 
-        // Vincular con el XML
-        txtIdMedicamento = findViewById(R.id.txtidmedicamento)
         txtDescripcion = findViewById(R.id.txtdescripcion)
-        txtPresentacion = findViewById(R.id.txtpresentacion)
-        txtInventario = findViewById(R.id.txtinventario)
         txtStock = findViewById(R.id.txtstock)
         txtCosto = findViewById(R.id.txtcosto)
         txtVenta = findViewById(R.id.txtventa)
@@ -45,10 +37,8 @@ class MedicamentosActivity : AppCompatActivity() {
 
         btnAgregar = findViewById(R.id.buttonAddMedicamento)
         btnVer = findViewById(R.id.buttonViewMedicamento)
-        btnBorrar = findViewById(R.id.buttonBorraMedicamento)
 
         btnAgregar.setOnClickListener { addMedicamento() }
-        btnBorrar.setOnClickListener { borrarMedicamento() }
 
         btnVer.setOnClickListener {
             val intent = Intent(applicationContext, ViewMedicamentosActivity::class.java)
@@ -58,64 +48,46 @@ class MedicamentosActivity : AppCompatActivity() {
 
     // Insertar medicamento
     private fun addMedicamento() {
-        val stringRequest = object : StringRequest(
-            Request.Method.POST, EndPoints.URL_ADD_MEDICAMENTO,
-            Response.Listener<String> { response ->
+        val descripcion = txtDescripcion.text.toString()
+        val preCos = txtCosto.text.toString()
+        val preVen = txtVenta.text.toString()
+        val observacion = txtObservacion.text.toString()
+        val stock = txtStock.text.toString()
+
+        // Crear JSON con los valores
+        val params = JSONObject()
+        try {
+            params.put("descripcion", descripcion)
+            params.put("pre_cos", preCos.toDoubleOrNull() ?: 0.0)
+            params.put("pre_ven", preVen.toDoubleOrNull() ?: 0.0)
+            params.put("observacion", observacion)
+            params.put("stock", stock.toIntOrNull() ?: 0)
+        } catch (e: JSONException) {
+            e.printStackTrace()
+        }
+
+        val jsonRequest = object : com.android.volley.toolbox.JsonObjectRequest(
+            Request.Method.POST,
+            EndPoints.URL_ADD_MEDICAMENTO,
+            params,
+            Response.Listener { response ->
                 try {
-                    val obj = JSONObject(response)
-                    Toast.makeText(applicationContext, obj.getString("message"), Toast.LENGTH_LONG).show()
+                    Toast.makeText(applicationContext, response.getString("message"), Toast.LENGTH_LONG).show()
                 } catch (e: JSONException) {
                     e.printStackTrace()
                 }
             },
-            Response.ErrorListener { volleyError ->
-                Toast.makeText(applicationContext, volleyError.message, Toast.LENGTH_LONG).show()
+            Response.ErrorListener { error: VolleyError ->
+                Toast.makeText(applicationContext, error.message, Toast.LENGTH_LONG).show()
             }) {
-
-            @Throws(AuthFailureError::class)
-            override fun getParams(): Map<String, String> {
-                val params = HashMap<String, String>()
-                params["idmedicamento"] = txtIdMedicamento.text.toString()
-                params["descripcion"] = txtDescripcion.text.toString()
-                params["presentacion"] = txtPresentacion.text.toString()
-                params["inventario"] = txtInventario.text.toString()
-                params["stock_disponible"] = txtStock.text.toString()
-                params["precio_costo"] = txtCosto.text.toString()
-                params["precio_venta"] = txtVenta.text.toString()
-                params["observacion"] = txtObservacion.text.toString()
-                return params
+            override fun getHeaders(): Map<String, String> {
+                val headers = HashMap<String, String>()
+                headers["Content-Type"] = "application/json"
+                return headers
             }
         }
-        VolleySingleton.instance?.addToRequestQueue(stringRequest)
-    }
 
-    // Borrar medicamento
-    private fun borrarMedicamento() {
-        val id = txtIdMedicamento.text.toString()
-        if (id.isNotEmpty()) {
-            val stringRequest = object : StringRequest(
-                Request.Method.POST, EndPoints.URL_DELETE_MEDICAMENTO,
-                Response.Listener<String> { response ->
-                    try {
-                        val obj = JSONObject(response)
-                        Toast.makeText(applicationContext, obj.getString("message"), Toast.LENGTH_LONG).show()
-                    } catch (e: JSONException) {
-                        e.printStackTrace()
-                    }
-                },
-                Response.ErrorListener { volleyError ->
-                    Toast.makeText(applicationContext, volleyError.message, Toast.LENGTH_LONG).show()
-                }) {
-                @Throws(AuthFailureError::class)
-                override fun getParams(): Map<String, String> {
-                    val params = HashMap<String, String>()
-                    params["idmedicamento"] = id
-                    return params
-                }
-            }
-            VolleySingleton.instance?.addToRequestQueue(stringRequest)
-        } else {
-            Toast.makeText(this, "Ingrese el ID del medicamento a borrar!!", Toast.LENGTH_SHORT).show()
-        }
+        // agregar a la cola
+        VolleySingleton.instance?.addToRequestQueue(jsonRequest)
     }
 }

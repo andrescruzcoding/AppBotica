@@ -17,23 +17,19 @@ class MedicamentosList(
 
         val tvId = listViewItem.findViewById<TextView>(R.id.textViewId)
         val tvDescripcion = listViewItem.findViewById<TextView>(R.id.textViewDescripcion)
-        val tvPresentacion = listViewItem.findViewById<TextView>(R.id.textViewPresentacion)
-        val tvInventario = listViewItem.findViewById<TextView>(R.id.textViewInventario)
+        val tvObservacion = listViewItem.findViewById<TextView>(R.id.textViewObservacion)
         val tvStock = listViewItem.findViewById<TextView>(R.id.textViewStock)
         val tvPrecioCosto = listViewItem.findViewById<TextView>(R.id.textViewPrecioCosto)
         val tvPrecioVenta = listViewItem.findViewById<TextView>(R.id.textViewPrecioVenta)
-        val tvObservacion = listViewItem.findViewById<TextView>(R.id.textViewObservacion)
 
         val medi = medicaments[position]
 
-        tvId.text = "ID: ${medi.idmedicamento}"
+        tvId.text = "ID: ${medi.id_medi}"
         tvDescripcion.text = "Descripción: ${medi.descripcion}"
-        tvPresentacion.text = "Presentación: ${medi.presentacion}"
-        tvInventario.text = "Inventario: ${medi.inventario}"
-        tvStock.text = "Stock: ${medi.stock_disponible}"
-        tvPrecioCosto.text = "Precio Costo: S/ ${medi.precio_costo}"
-        tvPrecioVenta.text = "Precio Venta: S/ ${medi.precio_venta}"
         tvObservacion.text = "Observación: ${medi.observacion}"
+        tvStock.text = "Stock: ${medi.stock}"
+        tvPrecioCosto.text = "Precio Costo: S/ ${medi.pre_cos}"
+        tvPrecioVenta.text = "Precio Venta: S/ ${medi.pre_ven}"
 
         return listViewItem
     }
