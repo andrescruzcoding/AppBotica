@@ -1,45 +1,45 @@
 package com.example.finalbotica
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-
-import android.content.Intent
-import android.widget.*
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.VolleyError
 import org.json.JSONException
 import org.json.JSONObject
 
+class LaboratorioActivity : AppCompatActivity() {
 
-class MedicamentosActivity : AppCompatActivity() {
-
-    private lateinit var txtDescripcion: EditText
-    private lateinit var txtObservacion: EditText
-    private lateinit var txtStock: EditText
-    private lateinit var txtCosto: EditText
-    private lateinit var txtVenta: EditText
+    private lateinit var txtRucLab: EditText
+    private lateinit var txtRazon: EditText
+    private lateinit var txtDireccion: EditText
+    private lateinit var txtNroTel: EditText
+    private lateinit var txtCorreo: EditText
 
     private lateinit var btnAgregar: Button
     private lateinit var btnVer: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main6)
+        setContentView(R.layout.activity_laboratorio)
 
-        txtDescripcion = findViewById(R.id.txtDescripcion)
-        txtStock = findViewById(R.id.txtstock)
-        txtCosto = findViewById(R.id.txtcosto)
-        txtVenta = findViewById(R.id.txtventa)
-        txtObservacion = findViewById(R.id.txtobservacion)
+        txtRucLab = findViewById(R.id.txtRucLab)
+        txtRazon = findViewById(R.id.txtRazon)
+        txtDireccion = findViewById(R.id.txtDireccion)
+        txtNroTel = findViewById(R.id.txtNroTel)
+        txtCorreo = findViewById(R.id.txtCorreo)
 
-        btnAgregar = findViewById(R.id.buttonAddMedicamento)
-        btnVer = findViewById(R.id.buttonViewMedicamento)
+        btnAgregar = findViewById(R.id.buttonAddLaboratorio)
+        btnVer = findViewById(R.id.buttonViewLaboratorio)
 
-        btnAgregar.setOnClickListener { addMedicamento() }
+        btnAgregar.setOnClickListener { addLaboratorio() }
 
         btnVer.setOnClickListener {
-            val intent = Intent(applicationContext, ViewMedicamentosActivity::class.java)
+            val intent = Intent(applicationContext, ViewLaboratorio::class.java)
             startActivity(intent)
         }
 
@@ -49,29 +49,28 @@ class MedicamentosActivity : AppCompatActivity() {
         }
     }
 
-    // Insertar medicamento
-    private fun addMedicamento() {
-        val descripcion = txtDescripcion.text.toString()
-        val preCos = txtCosto.text.toString()
-        val preVen = txtVenta.text.toString()
-        val observacion = txtObservacion.text.toString()
-        val stock = txtStock.text.toString()
+    private fun addLaboratorio() {
+        val ruc = txtRucLab.text.toString()
+        val razon = txtRazon.text.toString()
+        val direccion = txtDireccion.text.toString()
+        val telefono = txtNroTel.text.toString()
+        val correo = txtCorreo.text.toString()
 
         // Crear JSON con los valores
         val params = JSONObject()
         try {
-            params.put("descripcion", descripcion)
-            params.put("pre_cos", preCos.toDoubleOrNull() ?: 0.0)
-            params.put("pre_ven", preVen.toDoubleOrNull() ?: 0.0)
-            params.put("observacion", observacion)
-            params.put("stock", stock.toIntOrNull() ?: 0)
+            params.put("ruc_lab", ruc)
+            params.put("razon_social", razon)
+            params.put("direccion", direccion)
+            params.put("telefono", telefono)
+            params.put("email", correo)
         } catch (e: JSONException) {
             e.printStackTrace()
         }
 
         val jsonRequest = object : com.android.volley.toolbox.JsonObjectRequest(
             Request.Method.POST,
-            EndPoints.URL_ADD_MEDICAMENTO,
+            EndPoints.URL_ADD_LABORATORIO,
             params,
             Response.Listener { response ->
                 try {

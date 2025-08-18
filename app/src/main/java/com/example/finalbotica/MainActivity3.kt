@@ -10,6 +10,11 @@ class MainActivity3 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main3)
+
+        supportActionBar?.apply {
+            setDisplayHomeAsUpEnabled(true) // Activa el botón "atrás" (home)
+            setHomeAsUpIndicator(R.drawable.ic_baseline_reply_24) // Cambia icono
+        }
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
@@ -48,8 +53,13 @@ class MainActivity3 : AppCompatActivity() {
             R.id.ubicacion -> ubicacion()
             R.id.qSomos -> quienes()
             R.id.misionvision -> misionvision()
-            R.id.atras -> atras()
             R.id.medicamento -> medicamentos()
+            android.R.id.home -> { // Este es el botón "up" (flecha o icono que pusiste)
+                val intent = Intent(this, MainActivity2::class.java)
+                startActivity(intent)
+                finish() // opcional, para que no vuelva aquí al presionar atrás
+                true
+            }
         }
         return super.onOptionsItemSelected(item)
     }
