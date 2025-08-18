@@ -20,9 +20,11 @@ class MainActivity3 : AppCompatActivity() {
         menuInflater.inflate(R.menu.menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
+    /*
     fun atras() {
         finish()
     }
+     */
 
     fun quienes(){
         val pantalla1 = Intent(this, MainActivity4::class.java)
@@ -48,12 +50,19 @@ class MainActivity3 : AppCompatActivity() {
         finish()
     }
 
+    fun laboratorios(){
+        val pantalla2 = Intent(this, LaboratorioActivity::class.java)
+        startActivity(pantalla2)
+        finish()
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.ubicacion -> ubicacion()
             R.id.qSomos -> quienes()
             R.id.misionvision -> misionvision()
             R.id.medicamento -> medicamentos()
+            R.id.laboratorio -> laboratorios()
             android.R.id.home -> { // Este es el botón "up" (flecha o icono que pusiste)
                 val intent = Intent(this, MainActivity2::class.java)
                 startActivity(intent)

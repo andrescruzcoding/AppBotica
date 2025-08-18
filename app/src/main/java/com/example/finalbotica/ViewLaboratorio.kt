@@ -99,7 +99,7 @@ class ViewLaboratorio : AppCompatActivity() {
         }
 
         val jsonRequest = object : com.android.volley.toolbox.JsonObjectRequest(
-            Request.Method.DELETE,  // o Method.DELETE si tu backend lo soporta
+            Request.Method.POST,  // o Method.DELETE si tu backend lo soporta
             EndPoints.URL_DELETE_LABORATORIO,
             params,
             Response.Listener { response ->
