@@ -29,6 +29,6 @@
         android:id="@+id/laboratorio"
         android:title="Laboratorio" />
     <item
-        android:id="@+id/ompra"
+        android:id="@+id/compra"
         android:title="Compra" />
 </menu>

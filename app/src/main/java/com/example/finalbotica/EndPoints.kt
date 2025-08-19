@@ -12,4 +12,8 @@ object EndPoints {
     val URL_GET_LABORATORIOS = URL_ROOT + "all_laboratorio"
     val URL_DELETE_LABORATORIO = URL_ROOT + "delete_laboratorio"
     val URL_ADD_LABORATORIO = URL_ROOT + "post_laboratorio"
+
+    val URL_GET_COMPRAS = URL_ROOT + "all_compra"
+    val URL_DELETE_COMPRA = URL_ROOT + "delete_compra"
+    val URL_ADD_COMPRA = URL_ROOT + "post_compra"
 }

@@ -18,13 +18,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalBotica">
         <activity
+            android:name=".CompraActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ViewCompra"
+            android:exported="true" />
+        <activity
             android:name=".LaboratorioActivity"
             android:exported="true" />
         <activity
             android:name=".ViewLaboratorio"
-            android:exported="true" />
-        <activity
-            android:name=".CreateLab"
             android:exported="true" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

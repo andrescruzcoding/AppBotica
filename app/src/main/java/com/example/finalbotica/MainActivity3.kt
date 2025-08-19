@@ -56,6 +56,17 @@ class MainActivity3 : AppCompatActivity() {
         finish()
     }
 
+    fun compras(){
+        val pantalla3 = Intent(this, CompraActivity::class.java)
+        startActivity(pantalla3)
+        finish()
+    }
+    fun productos(){
+        val pantalla4 = Intent(this, ViewMedicamentosActivity::class.java)
+        startActivity(pantalla4)
+        finish()
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.ubicacion -> ubicacion()
@@ -63,6 +74,8 @@ class MainActivity3 : AppCompatActivity() {
             R.id.misionvision -> misionvision()
             R.id.medicamento -> medicamentos()
             R.id.laboratorio -> laboratorios()
+            R.id.productos -> productos()
+            R.id.compra -> compras()
             android.R.id.home -> { // Este es el botón "up" (flecha o icono que pusiste)
                 val intent = Intent(this, MainActivity2::class.java)
                 startActivity(intent)

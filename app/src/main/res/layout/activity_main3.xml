@@ -6,36 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity3">
 
-    <ListView
-        android:id="@+id/listamedi"
-        android:layout_width="361dp"
-        android:layout_height="378dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="#004CAF50"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.896" />
-
-    <SearchView
-        android:id="@+id/searchView"
-        android:layout_width="379dp"
-        android:layout_height="52dp"
-        android:background="@drawable/search_background"
-        android:iconifiedByDefault="false"
-        android:queryHint="¿Qué estás buscando?"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.05" />
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="363dp"
@@ -46,5 +16,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.171"
         app:srcCompat="@drawable/medi" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="296dp"
+        android:layout_height="268dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.727"
+        app:srcCompat="@drawable/img" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

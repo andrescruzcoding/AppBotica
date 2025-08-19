@@ -5,33 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo"
-    tools:context=".LaboratorioActivity">
-
-    <EditText
-        android:id="@+id/txtRucLab"
-        android:layout_width="212dp"
-        android:layout_height="30dp"
-        android:background="#BEEAEAEA"
-        android:ems="10"
-        android:gravity="start|center_vertical"
-        android:hint="Ingresar ruc"
-        android:inputType="number"
-        android:paddingLeft="25px"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.869"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.182" />
+    tools:context=".CompraActivity">
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/textView22"
         android:layout_width="141dp"
         android:layout_height="30dp"
         android:layout_marginTop="36dp"
         android:gravity="center_vertical"
-        android:text="Ruc Laborat.:"
+        android:text="Medicamento:"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:textSize="18dp"
         android:textStyle="bold"
@@ -42,31 +24,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.138" />
 
-    <EditText
-        android:id="@+id/txtRazon"
-        android:layout_width="212dp"
-        android:layout_height="30dp"
-        android:background="#BEEAEAEA"
-        android:ems="10"
-        android:gravity="start|center_vertical"
-        android:hint="Ingresar razon social"
-        android:inputType="textPersonName"
-        android:paddingLeft="25px"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.869"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.243" />
-
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/textView21"
         android:layout_width="141dp"
         android:layout_height="30dp"
         android:layout_marginTop="36dp"
         android:gravity="center_vertical"
-        android:text="Razon Social:"
+        android:text="Laboratorio:"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:textSize="18dp"
         android:textStyle="bold"
@@ -78,13 +42,13 @@
         app:layout_constraintVertical_bias="0.203" />
 
     <EditText
-        android:id="@+id/txtDireccion"
+        android:id="@+id/txtLote"
         android:layout_width="212dp"
         android:layout_height="30dp"
         android:background="#BEEAEAEA"
         android:ems="10"
         android:gravity="start|center_vertical"
-        android:hint="Ingresar direccion"
+        android:hint="Ingresar lote"
         android:inputType="textPersonName"
         android:paddingLeft="25px"
         android:textColor="#000000"
@@ -101,7 +65,7 @@
         android:layout_height="30dp"
         android:layout_marginTop="36dp"
         android:gravity="center_vertical"
-        android:text="Direccion:"
+        android:text="Lote"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:textSize="18dp"
         android:textStyle="bold"
@@ -112,49 +76,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.261" />
 
-    <EditText
-        android:id="@+id/txtNroTel"
-        android:layout_width="212dp"
-        android:layout_height="30dp"
-        android:background="#BEEAEAEA"
-        android:ems="10"
-        android:gravity="start|center_vertical"
-        android:hint="Ingresar telefono"
-        android:inputType="phone"
-        android:paddingLeft="25px"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.869"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.36" />
-
-    <EditText
-        android:id="@+id/txtCorreo"
-        android:layout_width="212dp"
-        android:layout_height="30dp"
-        android:background="#BEEAEAEA"
-        android:ems="10"
-        android:gravity="start|center_vertical"
-        android:hint="Ingresar correo"
-        android:inputType="textEmailAddress"
-        android:paddingLeft="25px"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.869"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.426" />
-
     <TextView
         android:id="@+id/textView20"
         android:layout_width="141dp"
         android:layout_height="30dp"
         android:layout_marginTop="36dp"
         android:gravity="center_vertical"
-        android:text="Correo:"
+        android:text="Precio"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:textSize="18dp"
         android:textStyle="bold"
@@ -166,12 +94,30 @@
         app:layout_constraintVertical_bias="0.395" />
 
     <TextView
+        android:id="@+id/mostrarPrecio"
+        android:layout_width="212dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="36dp"
+        android:background="#BEEAEAEA"
+        android:gravity="start|center_vertical"
+        android:paddingLeft="25px"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.869"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.395" />
+
+    <TextView
         android:id="@+id/textView19"
         android:layout_width="141dp"
         android:layout_height="30dp"
         android:layout_marginTop="36dp"
         android:gravity="center_vertical"
-        android:text="Contacto:"
+        android:text="Cantidad"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:textSize="18dp"
         android:textStyle="bold"
@@ -183,12 +129,12 @@
         app:layout_constraintVertical_bias="0.326" />
 
     <Button
-        android:id="@+id/buttonAddLaboratorio"
+        android:id="@+id/buttonAddCompra"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:text="Agregar Laboratorio"
+        android:text="Agregar Compra"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -201,9 +147,10 @@
         android:layout_width="309dp"
         android:layout_height="73dp"
         android:gravity="center"
-        android:text="Agregar un Nuevo Laboratorio"
+        android:text="Realizar Nueva Compra"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:textColor="#7ECB2B"
+        android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -212,17 +159,64 @@
         app:layout_constraintVertical_bias="0.039" />
 
     <Button
-        android:id="@+id/buttonViewLaboratorio"
+        android:id="@+id/buttonViewCompras"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:text="Ver Laboratorios"
+        android:text="Ver Todas las Compras"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.755" />
+
+    <Spinner
+        android:id="@+id/spinnerMedica"
+        android:layout_width="212dp"
+        android:layout_height="30dp"
+        android:background="#BEEAEAEA"
+        android:gravity="start|center_vertical"
+        android:spinnerMode="dropdown"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.869"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.182" />
+
+    <Spinner
+        android:id="@+id/spinnerLabo"
+        android:layout_width="212dp"
+        android:layout_height="30dp"
+        android:background="#BEEAEAEA"
+        android:gravity="start|center_vertical"
+        android:spinnerMode="dropdown"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.869"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.243" />
+
+    <EditText
+        android:id="@+id/txtCantidad"
+        android:layout_width="212dp"
+        android:layout_height="30dp"
+        android:background="#BEEAEAEA"
+        android:ems="10"
+        android:hint="Ingresar cantidad"
+        android:inputType="number"
+        android:paddingLeft="25px"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.869"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.36" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
